@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Environment>
+    <!-- General -->
+    <PlatformNameOfTest>api</PlatformNameOfTest>    <!-- WEB or API -->
+
+    <!-- Web -->
+    <BrowserType>chrome</BrowserType>    <!-- CHROME or FIREFOX -->
+    <URL>http://www.w3schools.com/html/html_tables.asp</URL>
+
+    <!-- API -->
+    <JAVAX_MAIL>YES</JAVAX_MAIL>
+    <Host>smtp.gmail.com</Host>
+    <Port>587</Port>
+    <UserName>exmp.dakota.expm.reed@gmail.com</UserName>
+    <UserPassword>rgihdnddascivfui</UserPassword>
+
+    <!-- Path of Directories -->
+    <DDTFile_IndexesTexts>./DDTFiles/indexesAndSearchTextS.csv</DDTFile_IndexesTexts>
+</Environment>
