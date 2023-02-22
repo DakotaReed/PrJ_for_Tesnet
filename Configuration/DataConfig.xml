@@ -2,7 +2,7 @@
 
 <Environment>
     <!-- General -->
-    <PlatformNameOfTest>api</PlatformNameOfTest>    <!-- WEB or API -->
+    <PlatformNameOfTest>web</PlatformNameOfTest>    <!-- WEB or API -->
 
     <!-- Web -->
     <BrowserType>chrome</BrowserType>    <!-- CHROME or FIREFOX -->

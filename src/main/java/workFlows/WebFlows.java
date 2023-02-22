@@ -13,7 +13,7 @@ public class WebFlows extends CommonOps {
         listOfRows = table.findElements(By.tagName("tr"));
     }
 
-    @Step("Business Flow: Building List of Row Values (tagname = 'td'   )")
+    @Step("Business Flow: Building List of Row Values (tagname = 'td')")
     public static List<WebElement> buildListRowValues(int row) {
         return listOfRows.get(row).findElements(By.tagName("td"));
     }
@@ -31,7 +31,6 @@ public class WebFlows extends CommonOps {
 
     @Step("Business Flow: Getting Value from Column in Needed Row")
     public static String getValueInNeededRow(int neededRow, int returnColumnText) {
-//        System.out.println(buildListRowValues(neededRow).get(returnColumnText).getText());
         return buildListRowValues(neededRow).get(returnColumnText).getText();
     }
 
@@ -53,21 +52,15 @@ public class WebFlows extends CommonOps {
         return objClass_WebFlows.verifyTableCellText(W3_MainPage.table_customers, searchColumn, searchText, returnColumnText, expectedText);
     }
 
-
-
-
 //--------DON'T TOUCH--------
-    public String getTableCellTextByXpath(WebElement table, int searchColumn, String searchText, int returnColumnText) throws Exception {
-
-        driver.findElement(By.xpath("//table[@id='customers']//tr[contains(*/td/text(), '"+searchText+"')]/td["+(returnColumnText+1)+"]"));
-        //table[@id='customers']//td[3]//parent::tr/td[3]
-        return "*****";
+    @Step("Business Flow: Getting Country Name from Table by XPath (return String) DON'T TOUCH")
+    public String getTableCellTextByXpath(WebElement table, int searchColumn, String searchText, int returnColumnText) {
+        return table.findElement(By.xpath("//td[normalize-space()='" + searchText + "']//parent::tr//td[" + (returnColumnText+1) + "]")).getText();
     }
 
     @Step("Business Flow: Wrapping Country Name")
-    public static String wrappingCountryName(int searchColumn, String searchText, int returnColumnText) throws Exception {
-        String abc = objClass_WebFlows.getTableCellTextByXpath(W3_MainPage.table_customers, searchColumn, searchText, returnColumnText);
-        return abc;
+    public static String wrappingCountryName(int searchColumn, String searchText, int returnColumnText) {
+        return objClass_WebFlows.getTableCellTextByXpath(W3_MainPage.table_customers, searchColumn, searchText, returnColumnText);
     }
 
 }

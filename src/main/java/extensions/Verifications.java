@@ -13,8 +13,8 @@ public class Verifications extends CommonOps {
     }
 
     @Step("Verify Country of Company by ONLY XPath")
-    public static void verifyCountryOfCompanyByXPath(int searchColumn, String searchText, int returnColumnText, String expectedText) throws Exception {
-        assertTrue(WebFlows.wrappingCountryName(searchColumn, searchText, returnColumnText).equalsIgnoreCase(expectedText));
+    public static void verifyCountryOfCompanyByXPath(String actualName, String expectedName) {
+        assertEquals(actualName, expectedName);
     }
 
 }

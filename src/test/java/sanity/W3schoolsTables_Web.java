@@ -6,6 +6,7 @@ import io.qameta.allure.Description;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utilities.CommonOps;
+import workFlows.WebFlows;
 
 @Listeners(utilities.ListenersAuto.class)
 public class W3schoolsTables_Web extends CommonOps {
@@ -18,9 +19,8 @@ public class W3schoolsTables_Web extends CommonOps {
 
     @Test(description = "Test 02: Verify Country of Company", dataProvider = "data-provider-indexesAndSearchTextS", dataProviderClass = utilities.ManageDDT.class)
     @Description("Verify Country of Company in CLIENT VS Country of Company in DATA (using XPath)")
-    public void test02_verifyCountryOfCompany(String searchColumn, String searchCompany, String returnColumn, String companyCountry) throws Exception {
-        Verifications.verifyCountryOfCompanyByXPath(UIActions.convertStrToInt(searchColumn), searchCompany, UIActions.convertStrToInt(returnColumn), companyCountry);
-        //--------  I couldn't deal with it. Test not working.  --------
+    public void test02_verifyCountryOfCompany(String searchColumn, String searchCompany, String returnColumn, String companyCountry) {
+        Verifications.verifyCountryOfCompanyByXPath(WebFlows.wrappingCountryName(UIActions.convertStrToInt(searchColumn), searchCompany, UIActions.convertStrToInt(returnColumn)), companyCountry);
     }
 
 }
